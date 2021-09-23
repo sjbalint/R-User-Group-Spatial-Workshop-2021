@@ -59,6 +59,8 @@ library(tidycensus)
 library(tidyverse)
 library(tigris)
 
+census_api_key("4352cd7e6cf26e91bb1f05e702f130ade96f5bcb")
+
 tracts <- get_acs(geography = "tract", variables = "DP04_0134", 
                 state = "OR", geometry = TRUE, progress_bar = FALSE)
 

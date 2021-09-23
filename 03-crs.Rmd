@@ -133,7 +133,7 @@ st_crs(pnw)
 # Are they equal?
 st_crs(gages_sf)==st_crs(pnw)
 # transform one to the other
-gages_sf <- st_transform(gages_sf, st_crs(pnw))
+gages_sf <- st_transform(gages_sf, st_crs(pnw)) #instead of passing ECSG code, transform to coordinate system of states data
 ggplot() + 
   geom_sf(data=gages_sf,  color="blue") +
   geom_sf(data=pnw,  color="black", fill=NA) +
@@ -159,7 +159,7 @@ utmz11 <- 'PROJCS["NAD83(CSRS98) / UTM zone 11N (deprecated)",GEOGCS["NAD83(CSRS
 
 # or you can simply provide the EPSG code:
 utmz11 <- 2153
-gages_sf <- st_transform(gages_sf, utmz11)
+gages_sf <- st_transform(gages_sf, utmz11) #here is using the ECSG code
 pnw <- st_transform(pnw, utmz11)
 p2 <- ggplot() + 
   geom_sf(data=gages_sf,  color="blue") +
